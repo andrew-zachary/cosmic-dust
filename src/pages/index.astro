@@ -1,18 +1,9 @@
 ---
+import { getCollection } from "astro:content";
+
+const allBlogPosts = await getCollection('posts');
 ---
-<script>
-const countUpBtn = document.querySelector('#countUpBtn');
-const textHeader = document.querySelector('#textHeader');
 
-let count = 0;
-const countUp = () => {
-	count += 1;
-	textHeader.innerHTML = count;
-};
-
-countUpBtn.addEventListener('click', countUp);
-
-</script>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -22,7 +13,14 @@ countUpBtn.addEventListener('click', countUp);
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1 id="textHeader"></h1>
-		<button id="countUpBtn">count up</button>
+		<ul>
+			{
+				allBlogPosts.map(post => {
+					return <li>
+						<a href={`/posts/${post.slug}`}>{ post.data.title }</a>
+					</li>
+				})
+			}
+		</ul>
 	</body>
 </html>
