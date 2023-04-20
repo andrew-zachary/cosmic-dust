@@ -1,0 +1,28 @@
+---
+---
+<script>
+const countUpBtn = document.querySelector('#countUpBtn');
+const textHeader = document.querySelector('#textHeader');
+
+let count = 0;
+const countUp = () => {
+	count += 1;
+	textHeader.innerHTML = count;
+};
+
+countUpBtn.addEventListener('click', countUp);
+
+</script>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1 id="textHeader"></h1>
+		<button id="countUpBtn">count up</button>
+	</body>
+</html>
