@@ -1,10 +1,16 @@
 ---
 import { getCollection } from "astro:content";
 
-const allBlogPosts = await getCollection('posts', data => {
-	console.log(data);
-	return true;
-});
+export async function getStaticPaths({ paginate }) {
+
+    const allBlogPosts = await getCollection('posts', data => {
+        return true;
+    });
+
+    return paginate(allBlogPosts, {pageSize: 5});
+};
+
+const { page } = Astro.props;
 ---
 
 <html lang="en">
@@ -18,12 +24,19 @@ const allBlogPosts = await getCollection('posts', data => {
 	<body>
 		<ul>
 			{
-				allBlogPosts.map(post => {
+				page.data.map(post => {
 					return <li>
 						<a href={`/posts/${post.slug}`}>{ post.data.title }</a>
 					</li>
 				})
 			}
+		</ul>
+		<ul>
+			{ Array(page.total / 5).fill(undefined).map( (_, index) => {
+				return <li>
+					<a href={`/posts/${index + 1}`}>{ index+1 }</a>	
+				</li>
+			}) }
 		</ul>
 	</body>
 </html>
