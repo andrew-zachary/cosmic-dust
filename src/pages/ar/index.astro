@@ -2,10 +2,8 @@
 import { getCollection } from "astro:content";
 
 const allBlogPosts = await getCollection('posts', ({id}) => {
-	return id.includes('en/');
+	return id.includes('ar/');
 });
-
-console.log(allBlogPosts);
 ---
 
 <html lang="en">
@@ -21,7 +19,7 @@ console.log(allBlogPosts);
 			{
 				allBlogPosts.map(post => {
 					return <li>
-						<a href={`/${post.slug}`}>{ post.data.title }</a>
+						<a href={`/ar/${post.slug}`}>{ post.data.title }</a>
 					</li>
 				})
 			}
