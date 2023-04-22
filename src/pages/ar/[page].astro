@@ -1,0 +1,45 @@
+---
+
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths({ paginate }) {
+
+    const enPosts = await getCollection('posts', ({id}) => {
+        return id.includes('ar/');
+    });
+
+    return paginate(enPosts, { pageSize:5 });
+
+};
+
+const { page } = Astro.props;
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>posts</title>
+	</head>
+	<body>
+        <ul>
+            {
+                page.data.map(post => {
+                    return <li>
+                        <a href={ `${post.slug}` }>{ post.data.title }</a>
+                    </li>
+                })
+            }
+        </ul>
+        <ul>
+            {
+                Array( Math.floor(page.total / 5) ).fill(undefined).map( (_, index) => {
+                    return <li>
+                        <a href={`/ar/${index + 1}`}>{ index + 1 }</a>
+                    </li>
+                })
+            }
+        </ul>
+    </body>
+</html>

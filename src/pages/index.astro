@@ -4,8 +4,6 @@ import { getCollection } from "astro:content";
 const allBlogPosts = await getCollection('posts', ({id}) => {
 	return id.includes('en/');
 });
-
-console.log(allBlogPosts);
 ---
 
 <html lang="en">
