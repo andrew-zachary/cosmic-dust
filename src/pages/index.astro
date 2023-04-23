@@ -1,11 +1,5 @@
 ---
-import { getCollection } from "astro:content";
-
-const allBlogPosts = await getCollection('posts', ({id}) => {
-	return id.includes('en/');
-});
 ---
-
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -15,14 +9,13 @@ const allBlogPosts = await getCollection('posts', ({id}) => {
 		<title>Astro</title>
 	</head>
 	<body>
-		<ul>
-			{
-				allBlogPosts.map(post => {
-					return <li>
-						<a href={`/${post.slug}`}>{ post.data.title }</a>
-					</li>
-				})
-			}
-		</ul>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/posts/1">En</a>
+                    <a href="/ar/posts/1">العربية</a>
+                </li>
+            </ul>
+        </nav>
 	</body>
 </html>

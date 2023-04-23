@@ -244,140 +244,140 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] },
 "en/post-1.md": {
   id: "en/post-1.md",
-  slug: "en/post-1",
+  slug: "post-1",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-10.md": {
   id: "en/post-10.md",
-  slug: "en/post-10",
+  slug: "post-10",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-11.md": {
   id: "en/post-11.md",
-  slug: "en/post-11",
+  slug: "post-11",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-12.md": {
   id: "en/post-12.md",
-  slug: "en/post-12",
+  slug: "post-12",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-13.md": {
   id: "en/post-13.md",
-  slug: "en/post-13",
+  slug: "post-13",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-14.md": {
   id: "en/post-14.md",
-  slug: "en/post-14",
+  slug: "post-14",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-15.md": {
   id: "en/post-15.md",
-  slug: "en/post-15",
+  slug: "post-15",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-16.md": {
   id: "en/post-16.md",
-  slug: "en/post-16",
+  slug: "post-16",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-17.md": {
   id: "en/post-17.md",
-  slug: "en/post-17",
+  slug: "post-17",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-18.md": {
   id: "en/post-18.md",
-  slug: "en/post-18",
+  slug: "post-18",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-19.md": {
   id: "en/post-19.md",
-  slug: "en/post-19",
+  slug: "post-19",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-2.md": {
   id: "en/post-2.md",
-  slug: "en/post-2",
+  slug: "post-2",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-20.md": {
   id: "en/post-20.md",
-  slug: "en/post-20",
+  slug: "post-20",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-3.md": {
   id: "en/post-3.md",
-  slug: "en/post-3",
+  slug: "post-2",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-4.md": {
   id: "en/post-4.md",
-  slug: "en/post-4",
+  slug: "post-4",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-5.md": {
   id: "en/post-5.md",
-  slug: "en/post-5",
+  slug: "post-5",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-6.md": {
   id: "en/post-6.md",
-  slug: "en/post-6",
+  slug: "post-6",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-7.md": {
   id: "en/post-7.md",
-  slug: "en/post-7",
+  slug: "post-7",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-8.md": {
   id: "en/post-8.md",
-  slug: "en/post-8",
+  slug: "post-8",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "en/post-9.md": {
   id: "en/post-9.md",
-  slug: "en/post-9",
+  slug: "post-9",
   body: string,
   collection: "posts",
   data: any
