@@ -3,10 +3,10 @@ import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
 
-    const arPosts = await getCollection('posts', ({id}) => id.includes('ar/'));
+    const enPosts = await getCollection('posts', ({id}) => id.includes('ar/'));
 
-    return arPosts.map(post => ({
-        params: { slug: post.slug }, 
+    return enPosts.map(post => ({
+        params: { slug: post.slug, cat: post.data.cat }, 
         props: { post }
     }));
 

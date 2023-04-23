@@ -193,6 +193,20 @@ declare module 'astro:content' {
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
+"ar/post-21.md": {
+  id: "ar/post-21.md",
+  slug: "post-21",
+  body: string,
+  collection: "posts",
+  data: any
+} & { render(): Render[".md"] },
+"ar/post-22.md": {
+  id: "ar/post-22.md",
+  slug: "post-22",
+  body: string,
+  collection: "posts",
+  data: any
+} & { render(): Render[".md"] },
 "ar/post-3.md": {
   id: "ar/post-3.md",
   slug: "post-3",
