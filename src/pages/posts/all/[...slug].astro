@@ -1,19 +1,14 @@
 ---
-
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
 
-    const enPosts = await getCollection('posts', ({id}) => {
-        return id.includes('en/');
-    });
+    const enPosts = await getCollection('posts', ({id}) => id.includes('en/'));
 
-    return enPosts.map(post => {
-        return {
-            params: { slug: post.slug }, 
-            props: { post }
-        };
-    });
+    return enPosts.map(post => ({
+        params: { slug: post.slug },
+        props: { post }
+    }));
 
 };
 

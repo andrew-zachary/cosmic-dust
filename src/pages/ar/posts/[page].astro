@@ -1,12 +1,9 @@
 ---
-
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }) {
 
-    const enPosts = await getCollection('posts', ({id}) => {
-        return id.includes('ar/');
-    });
+    const enPosts = await getCollection('posts', ({id}) => id.includes('ar/'));
 
     return paginate(enPosts, { pageSize:5 });
 
