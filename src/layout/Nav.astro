@@ -1,34 +1,42 @@
 ---
 const links = {
     "en": [{
+        "label": "home",
         "name": "home",
         "url": "/"
     },
     {
+        "label": "posts",
         "name": "posts",
         "url": "/posts/all/1"
     },
     {
+        "label": "about",
         "name": "about",
         "url": "/about"
     },
     {
+        "label": "",
         "name": "العربية",
         "url": "/ar"
     }],
     "ar": [{
+        "label": "home",
         "name": "ابدأ",
         "url": "/ar"
     },
     {
+        "label": "posts",
         "name": "مقالات",
         "url": "/ar/posts/all/1"
     },
     {
+        "label": "about",
         "name": "عنا",
         "url": "/ar/about"
     },
     {
+        "label": "",
         "name": "En",
         "url": "/"
     }]
@@ -36,11 +44,23 @@ const links = {
 
 const { lang } = Astro.props;
 ---
+<script>
+
+    const bodyId = document.querySelector('body').id;
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach( navLink => {
+
+        if(navLink.getAttribute('data-label') === bodyId) navLink.classList.add('active');
+        
+    });
+
+</script>
 <nav>
     <ul>
         {
             links[lang].map( link => {
-                return <li>
+                return <li class="nav-link" data-label={link.label}>
                     <a href={link.url}>{ link.name }</a>
                 </li>
             })
