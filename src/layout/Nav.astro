@@ -1,0 +1,49 @@
+---
+const links = {
+    "en": [{
+        "name": "home",
+        "url": "/"
+    },
+    {
+        "name": "posts",
+        "url": "/posts/all/1"
+    },
+    {
+        "name": "about",
+        "url": "/about"
+    },
+    {
+        "name": "العربية",
+        "url": "/ar"
+    }],
+    "ar": [{
+        "name": "ابدأ",
+        "url": "/ar"
+    },
+    {
+        "name": "مقالات",
+        "url": "/ar/posts/all/1"
+    },
+    {
+        "name": "عنا",
+        "url": "/ar/about"
+    },
+    {
+        "name": "En",
+        "url": "/"
+    }]
+};
+
+const { lang } = Astro.props;
+---
+<nav>
+    <ul>
+        {
+            links[lang].map( link => {
+                return <li>
+                    <a href={link.url}>{ link.name }</a>
+                </li>
+            })
+        }
+    </ul>
+</nav>

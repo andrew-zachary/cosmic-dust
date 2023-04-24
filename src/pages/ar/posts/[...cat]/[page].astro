@@ -1,6 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
+//layout
+import Nav from "../../../../layout/Nav.astro";
+
 export async function getStaticPaths({ paginate }) {
 
     const cats = ['cat-1', 'cat-2', 'cat-3', 'cat-4', 'all'];
@@ -40,22 +43,7 @@ const { page, cats, currentCat } = Astro.props;
 		<title>posts</title>
 	</head>
 	<body>
-        <nav>
-            <ul>
-				<li>
-					<a href="/ar">ابدأ</a>
-				</li>
-				<li>
-					<a href="/ar/posts/all/1">مقالات</a>
-				</li>
-				<li>
-					<a href="/ar/about">عنا</a>
-				</li>
-				<li>
-                    <a href="/">En</a>
-                </li>
-            </ul>
-        </nav>
+        <Nav lang="ar" />
         <ul>
             {
                 cats.map(cat => {

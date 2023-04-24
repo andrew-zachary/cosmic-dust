@@ -1,6 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
+//layout
+import Nav from "../../../../layout/Nav.astro";
+
 export async function getStaticPaths() {
 
     const enPosts = await getCollection('posts', ({id}) => id.includes('ar/'));
@@ -24,22 +27,7 @@ const { Content } = await post.render();
 		<title>{post.title}</title>
 	</head>
 	<body>
-        <nav>
-            <ul>
-				<li>
-					<a href="/ar">ابدأ</a>
-				</li>
-				<li>
-					<a href="/ar/posts/all/1">مقالات</a>
-				</li>
-				<li>
-					<a href="/ar/about">عنا</a>
-				</li>
-				<li>
-                    <a href="/">En</a>
-                </li>
-            </ul>
-        </nav>
+        <Nav lang="ar" />
         <h1>{post.data.title}</h1>
         <Content />
     </body>
