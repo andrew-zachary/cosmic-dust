@@ -1,19 +1,14 @@
 ---
 
 //layout
+import Main from "../../layout/Main.astro";
 import Nav from "../../layout/Nav.astro";
 
 ---
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-        <Nav lang="ar" />
-		<h1>عنا</h1>
-	</body>
-</html>
+<Main title="عنا">
+
+	<Nav lang="ar" />
+
+	<h1>عنا</h1>
+	
+</Main>

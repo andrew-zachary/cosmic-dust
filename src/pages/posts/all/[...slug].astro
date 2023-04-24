@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 
 //layout
+import Main from "../../../layout/Main.astro";
 import Nav from "../../../layout/Nav.astro";
 
 export async function getStaticPaths() {
@@ -18,17 +19,12 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 ---
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{post.title}</title>
-	</head>
-	<body>
-        <Nav lang="en" />
-        <h1>{post.data.title}</h1>
-        <Content />
-    </body>
-</html>
+<Main title={post.slug}>
+
+    <Nav lang="en" />
+
+    <h1>{post.data.title}</h1>
+
+    <Content />
+
+</Main>

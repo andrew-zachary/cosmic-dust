@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 
 //layout
+import Main from "../../../layout/Main.astro";
 import Nav from "../../../layout/Nav.astro";
 
 export async function getStaticPaths({ paginate }) {
@@ -34,42 +35,38 @@ export async function getStaticPaths({ paginate }) {
 
 const { page, cats, currentCat } = Astro.props;
 ---
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>posts</title>
-	</head>
-	<body>
-        <Nav lang="en" />
-        <ul>
-            {
-                cats.map(cat => {
-                    return <li>
-                        <a href={ `/posts/${cat}/1` }>{ cat }</a>
-                    </li>
-                })
-            }
-        </ul>
-        <ul>
-            {
-                page.data.map(post => {
-                    return <li>
-                        <a href={ `${post.slug}` }>{ post.data.title }</a>
-                    </li>
-                })
-            }
-        </ul>
-        <ul>
-            {
-                Array( Math.ceil(page.total / 5) ).fill(undefined).map( (_, index) => {
-                    return <li>
-                        <a href={`/posts/${currentCat}/${index + 1}`}>{ index + 1 }</a>
-                    </li>
-                })
-            }
-        </ul>
-    </body>
-</html>
+<Main title={currentCat}>
+
+    <Nav lang="en" />
+
+    <ul>
+        {
+            cats.map(cat => {
+                return <li>
+                    <a href={ `/posts/${cat}/1` }>{ cat }</a>
+                </li>
+            })
+        }
+    </ul>
+
+    <ul>
+        {
+            page.data.map(post => {
+                return <li>
+                    <a href={ `${post.slug}` }>{ post.data.title }</a>
+                </li>
+            })
+        }
+    </ul>
+
+    <ul>
+        {
+            Array( Math.ceil(page.total / 5) ).fill(undefined).map( (_, index) => {
+                return <li>
+                    <a href={`/posts/${currentCat}/${index + 1}`}>{ index + 1 }</a>
+                </li>
+            })
+        }
+    </ul>
+    
+</Main>
