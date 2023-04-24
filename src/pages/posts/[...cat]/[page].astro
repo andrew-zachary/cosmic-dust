@@ -40,6 +40,22 @@ const { page, cats, currentCat } = Astro.props;
 		<title>posts</title>
 	</head>
 	<body>
+        <nav>
+            <ul>
+				<li>
+					<a href="/">home</a>
+				</li>
+				<li>
+					<a href="/posts/all/1">posts</a>
+				</li>
+				<li>
+					<a href="/about">about</a>
+				</li>
+				<li>
+                    <a href="/ar">العربية</a>
+                </li>
+            </ul>
+        </nav>
         <ul>
             {
                 cats.map(cat => {

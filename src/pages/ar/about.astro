@@ -1,19 +1,4 @@
 ---
-import { getCollection } from "astro:content";
-
-export async function getStaticPaths() {
-
-    const enPosts = await getCollection('posts', ({id}) => id.includes('ar/'));
-
-    return enPosts.map(post => ({
-        params: { slug: post.slug, cat: post.data.cat }, 
-        props: { post }
-    }));
-
-};
-
-const { post } = Astro.props;
-const { Content } = await post.render();
 ---
 <html lang="en">
 	<head>
@@ -21,7 +6,7 @@ const { Content } = await post.render();
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{post.title}</title>
+		<title>Astro</title>
 	</head>
 	<body>
         <nav>
@@ -40,7 +25,6 @@ const { Content } = await post.render();
                 </li>
             </ul>
         </nav>
-        <h1>{post.data.title}</h1>
-        <Content />
-    </body>
+		<h1>عنا</h1>
+	</body>
 </html>
