@@ -104,154 +104,154 @@ declare module 'astro:content' {
 		"posts": {
 "ar/post-1.md": {
   id: "ar/post-1.md",
-  slug: "post-1",
+  slug: "هذا-موضوع-1",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-10.md": {
   id: "ar/post-10.md",
-  slug: "post-10",
+  slug: "هذا-موضوع-10",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-11.md": {
   id: "ar/post-11.md",
-  slug: "post-11",
+  slug: "هذا-موضوع-11",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-12.md": {
   id: "ar/post-12.md",
-  slug: "post-12",
+  slug: "هذا-موضوع-12",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-13.md": {
   id: "ar/post-13.md",
-  slug: "post-13",
+  slug: "هذا-موضوع-13",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-14.md": {
   id: "ar/post-14.md",
-  slug: "post-14",
+  slug: "هذا-موضوع-14",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-15.md": {
   id: "ar/post-15.md",
-  slug: "post-15",
+  slug: "هذا-موضوع-15",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-16.md": {
   id: "ar/post-16.md",
-  slug: "post-16",
+  slug: "هذا-موضوع-16",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-17.md": {
   id: "ar/post-17.md",
-  slug: "post-17",
+  slug: "هذا-موضوع-17",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-18.md": {
   id: "ar/post-18.md",
-  slug: "post-18",
+  slug: "هذا-موضوع-18",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-19.md": {
   id: "ar/post-19.md",
-  slug: "post-19",
+  slug: "هذا-موضوع-19",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-2.md": {
   id: "ar/post-2.md",
-  slug: "post-2",
+  slug: "هذا-موضوع-2",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-20.md": {
   id: "ar/post-20.md",
-  slug: "post-20",
+  slug: "هذا-موضوع-20",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-21.md": {
   id: "ar/post-21.md",
-  slug: "post-21",
+  slug: "هذا-موضوع-21",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-22.md": {
   id: "ar/post-22.md",
-  slug: "post-22",
+  slug: "هذا-موضوع-22",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-3.md": {
   id: "ar/post-3.md",
-  slug: "post-3",
+  slug: "هذا-موضوع-3",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-4.md": {
   id: "ar/post-4.md",
-  slug: "post-4",
+  slug: "هذا-موضوع-4",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-5.md": {
   id: "ar/post-5.md",
-  slug: "post-5",
+  slug: "هذا-موضوع-5",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-6.md": {
   id: "ar/post-6.md",
-  slug: "post-6",
+  slug: "هذا-موضوع-6",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-7.md": {
   id: "ar/post-7.md",
-  slug: "post-7",
+  slug: "هذا-موضوع-7",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-8.md": {
   id: "ar/post-8.md",
-  slug: "post-8",
+  slug: "هذا-موضوع-8",
   body: string,
   collection: "posts",
   data: any
 } & { render(): Render[".md"] },
 "ar/post-9.md": {
   id: "ar/post-9.md",
-  slug: "post-9",
+  slug: "هذا-موضوع-9",
   body: string,
   collection: "posts",
   data: any
