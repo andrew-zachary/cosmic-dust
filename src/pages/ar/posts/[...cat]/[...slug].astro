@@ -1,9 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 
-//layout
+// layout
 import Main from "../../../../layout/Main.astro";
 import Nav from "../../../../layout/Nav.astro";
+
+// components
+import PageMainHeader from "../../../../components/PageMainHeader.astro";
+import PageMainContent from "../../../../components/PageMainContent.astro";
 
 export async function getStaticPaths() {
 
@@ -23,8 +27,12 @@ const { Content } = await post.render();
 
     <Nav lang="ar" />
 
-    <h1>{post.data.title}</h1>
+    <PageMainHeader>
+        {post.data.title}
+    </PageMainHeader>
 
-    <Content />
+    <PageMainContent>
+        <Content />
+    </PageMainContent>
     
 </Main>

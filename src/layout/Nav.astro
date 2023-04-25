@@ -48,6 +48,10 @@ const { lang } = Astro.props;
 
     .active {
         @apply font-bold;
+        
+        a {
+            @apply border-b-2 border-black;
+        }
     }
 
 </style>
@@ -67,7 +71,7 @@ const { lang } = Astro.props;
     <ul>
         {
             links[lang].map( link => {
-                return <li class="nav-link text-cd-sm font-mont font-regular capitalize" data-label={link.label}>
+                return <li class="nav-link text-cd-sm font-ssp font-regular capitalize" data-label={link.label}>
                     <a href={link.url}>{ link.name }</a>
                 </li>
             })

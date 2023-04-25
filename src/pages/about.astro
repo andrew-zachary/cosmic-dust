@@ -1,14 +1,19 @@
 ---
 
-//layout
+// layout
 import Main from "../layout/Main.astro";
 import Nav from "../layout/Nav.astro";
+
+// components
+import PageMainHeader from "../components/PageMainHeader.astro";
 
 ---
 <Main id="about" title="about">
 
 	<Nav lang="en" />
 
-	<h1>about</h1>
+	<PageMainHeader>
+		about
+	</PageMainHeader>
 	
 </Main>
