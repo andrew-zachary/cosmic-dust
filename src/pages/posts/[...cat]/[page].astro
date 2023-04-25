@@ -7,6 +7,7 @@ import Nav from "../../../layout/Nav.astro";
 
 // components
 import PageCategories from "../../../components/PageCategories.astro";
+import PagePagination from "../../../components/PagePagination.astro";
 
 export async function getStaticPaths({ paginate }) {
 
@@ -60,14 +61,6 @@ const { page, cats, currentCat } = Astro.props;
         }
     </ul>
 
-    <ul>
-        {
-            Array( Math.ceil(page.total / 5) ).fill(undefined).map( (_, index) => {
-                return <li>
-                    <a href={`/posts/${currentCat.slug}/${index + 1}`}>{ index + 1 }</a>
-                </li>
-            })
-        }
-    </ul>
+    <PagePagination page={page} currentCat={currentCat} postsUrl="/posts" />
     
 </Main>

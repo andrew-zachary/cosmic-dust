@@ -9,7 +9,7 @@ module.exports = {
 				'cd-md': '3.2rem',
 				'cd-lg': '4rem',
 				'cd-xl': '5.8rem',
-				'cd-xxl': '6rem'
+				'cd-xxl': '6.4rem'
 			},
 			maxWidth: {
 				'cd-xs': '32rem',

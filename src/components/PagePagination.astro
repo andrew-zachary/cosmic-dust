@@ -1,0 +1,28 @@
+---
+
+const { page, currentCat, postsUrl } = Astro.props;
+
+---
+<script>
+
+    const catLinksItem = document.querySelectorAll('.pages-links-item');
+    const pagesLinksList = document.querySelector('#pages-links-list');
+    
+    catLinksItem.forEach( item => {
+
+        if(pagesLinksList.getAttribute('data-selected-page') === item.getAttribute('data-page')) {
+            item.classList.add('active-link');
+        }
+
+    });
+
+</script>
+<ul id="pages-links-list" data-selected-page={page.currentPage}>
+    {
+        Array( Math.ceil(page.total / 5) ).fill(undefined).map( (_, index) => {
+            return <li class="pages-links-item text-cd-xs font-ssp" data-page={index + 1}>
+                <a href={`${postsUrl}/${currentCat.slug}/${index + 1}`}>{ index + 1 }</a>
+            </li>
+        })
+    }
+</ul>
