@@ -44,17 +44,6 @@ const links = {
 
 const { lang } = Astro.props;
 ---
-<style lang="scss">
-
-    .active {
-        @apply font-bold;
-        
-        a {
-            @apply border-b-2 border-black;
-        }
-    }
-
-</style>
 <script>
 
     const bodyId = document.querySelector('body').id;
@@ -62,7 +51,7 @@ const { lang } = Astro.props;
     
     navLinks.forEach( navLink => {
 
-        if(navLink.getAttribute('data-label') === bodyId) navLink.classList.add('active');
+        if(navLink.getAttribute('data-label') === bodyId) navLink.classList.add('active-link');
         
     });
 

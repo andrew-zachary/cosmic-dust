@@ -5,27 +5,36 @@ import { getCollection } from "astro:content";
 import Main from "../../../layout/Main.astro";
 import Nav from "../../../layout/Nav.astro";
 
+// components
+import PageCategories from "../../../components/PageCategories.astro";
+
 export async function getStaticPaths({ paginate }) {
 
-    const cats = ['cat-1', 'cat-2', 'cat-3', 'cat-4', 'all'];
+    const cats = [
+        { name: 'cat 1', slug: 'cat-1', url: '/posts/cat-1/1'},
+        { name: 'cat 2', slug: 'cat-2', url: '/posts/cat-2/1'},
+        { name: 'cat 3', slug: 'cat-3', url: '/posts/cat-3/1'},
+        { name: 'cat 4', slug: 'cat-4', url: '/posts/cat-4/1'},
+        { name: 'all', slug: 'all', url: '/posts/all/1'}
+    ];
 
     const paginatedCats = cats.map( async (cat) => {
 
-        if(cat === 'all') {
+        if(cat.slug === 'all') {
 
             const enPostsAll = await getCollection('posts', post => post.id.includes('en/'));
 
-            return paginate( enPostsAll, { pageSize: 5, params: { cat }, props: { cats, currentCat: cat } });    
+            return paginate( enPostsAll, { pageSize: 5, params: { cat: cat.slug }, props: { cats, currentCat: cat } });    
 
         }
 
         const enPostsByCat = await getCollection('posts', post => {
 
-            return post.id.includes('en/') && (post.data.cat === cat);
+            return post.id.includes('en/') && (post.data.cat === cat.slug);
 
         });
 
-        return paginate( enPostsByCat, { pageSize: 5, params: { cat }, props: { cats, currentCat: cat } });
+        return paginate( enPostsByCat, { pageSize: 5, params: { cat: cat.slug }, props: { cats, currentCat: cat } });
 
     });
 
@@ -35,19 +44,11 @@ export async function getStaticPaths({ paginate }) {
 
 const { page, cats, currentCat } = Astro.props;
 ---
-<Main id="posts" title={currentCat}>
+<Main id="posts" title={currentCat.name}>
 
     <Nav lang="en" />
 
-    <ul>
-        {
-            cats.map(cat => {
-                return <li>
-                    <a href={ `/posts/${cat}/1` }>{ cat }</a>
-                </li>
-            })
-        }
-    </ul>
+    <PageCategories cats={cats} currentCat={currentCat} />
 
     <ul>
         {
@@ -63,7 +64,7 @@ const { page, cats, currentCat } = Astro.props;
         {
             Array( Math.ceil(page.total / 5) ).fill(undefined).map( (_, index) => {
                 return <li>
-                    <a href={`/posts/${currentCat}/${index + 1}`}>{ index + 1 }</a>
+                    <a href={`/posts/${currentCat.slug}/${index + 1}`}>{ index + 1 }</a>
                 </li>
             })
         }

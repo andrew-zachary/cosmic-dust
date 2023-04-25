@@ -1,0 +1,28 @@
+---
+
+const { currentCat, cats } = Astro.props;
+
+---
+<script>
+
+    const catLinksItem = document.querySelectorAll('.cat-links-item');
+    const catLinksList = document.querySelector('#cat-links-list');
+    
+    catLinksItem.forEach( item => {
+
+        if(catLinksList.getAttribute('data-selected-cat') === item.getAttribute('data-slug')) {
+            item.classList.add('active-link');
+        }
+
+    });
+
+</script>
+<ul id="cat-links-list" data-selected-cat={currentCat.slug}>
+    {
+        cats.map(cat => {
+            return <li class="cat-links-item text-cd-xs font-ssp" data-slug={cat.slug}>
+                <a href={ cat.url }>{ cat.name }</a>
+            </li>
+        })
+    }
+</ul>
