@@ -8,6 +8,7 @@ import Nav from "../../../../layout/Nav.astro";
 // components
 import PageCategories from "../../../../components/PageCategories.astro";
 import PagePagination from "../../../../components/PagePagination.astro";
+import ListItem from "../../../../components/ListItem.astro";
 
 export async function getStaticPaths({ paginate }) {
 
@@ -54,9 +55,9 @@ const { page, cats, currentCat } = Astro.props;
     <ul>
         {
             page.data.map(post => {
-                return <li>
+                return <ListItem>
                     <a href={ `${post.slug}` }>{ post.data.title }</a>
-                </li>
+                </ListItem>
             })
         }
     </ul>
