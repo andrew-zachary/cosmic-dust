@@ -1,0 +1,7 @@
+@mixin withRtl($property, $ltr-value, $rtl-value) {
+
+    & { #{$property}: $ltr-value !important; }
+  
+    html[dir=rtl] & { #{$property}: $rtl-value !important; }
+    
+}

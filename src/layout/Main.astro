@@ -3,6 +3,21 @@
 const { id, title } = Astro.props;
 
 ---
+<style lang="scss" is:global>
+
+	html {
+		font-size: 62.5%;
+	}
+	  
+	.font-mont {
+		@include withRtl('font-family', 'Montserrat', 'Tajawal');
+	}
+	  
+	.font-ssp {
+		@include withRtl('font-family', 'Source Sans Pro', 'Readex Pro');
+	}
+
+</style>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -10,6 +25,9 @@ const { id, title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{ title }</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&family=Readex+Pro:wght@400;700&family=Source+Sans+Pro:wght@300;400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 	</head>
 	<body id={id}>
 		<slot></slot>

@@ -44,6 +44,13 @@ const links = {
 
 const { lang } = Astro.props;
 ---
+<style lang="scss">
+
+    .active {
+        @apply font-bold;
+    }
+
+</style>
 <script>
 
     const bodyId = document.querySelector('body').id;
@@ -60,7 +67,7 @@ const { lang } = Astro.props;
     <ul>
         {
             links[lang].map( link => {
-                return <li class="nav-link" data-label={link.label}>
+                return <li class="nav-link text-cd-sm font-mont font-regular capitalize" data-label={link.label}>
                     <a href={link.url}>{ link.name }</a>
                 </li>
             })
