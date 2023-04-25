@@ -1,6 +1,17 @@
 ---
 
-const { id, title } = Astro.props;
+import Nav from "./Nav.astro";
+
+const { id, title, lang } = Astro.props;
+
+const langs = {
+	"en": {
+		name: "en", dir: "ltr"
+	},
+	"ar": {
+		name: "ar", dir: "rtl"
+	}
+};
 
 ---
 <style lang="scss" is:global>
@@ -26,7 +37,7 @@ const { id, title } = Astro.props;
     }
 
 </style>
-<html lang="en">
+<html lang={langs[lang].name}>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -37,7 +48,11 @@ const { id, title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700&family=Readex+Pro:wght@400;700&family=Source+Sans+Pro:wght@300;400;700&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 	</head>
-	<body id={id}>
+	<body id={id} dir={langs[lang].dir}>
+
+		<Nav lang={lang} />
+
 		<slot></slot>
+		
 	</body>
 </html>

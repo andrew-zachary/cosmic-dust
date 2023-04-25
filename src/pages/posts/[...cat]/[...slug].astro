@@ -23,9 +23,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 ---
-<Main id="posts" title={post.slug}>
-
-    <Nav lang="en" />
+<Main id="posts" title={post.slug} lang="en">
 
     <PageMainHeader>
         {post.data.title}

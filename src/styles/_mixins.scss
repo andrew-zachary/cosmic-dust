@@ -2,6 +2,6 @@
 
     & { #{$property}: $ltr-value !important; }
   
-    html[dir=rtl] & { #{$property}: $rtl-value !important; }
+    body[dir=rtl] & { #{$property}: $rtl-value !important; }
     
 }

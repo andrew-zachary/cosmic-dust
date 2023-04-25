@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 
 // layout
 import Main from "../../../../layout/Main.astro";
-import Nav from "../../../../layout/Nav.astro";
 
 // components
 import PageCategories from "../../../../components/PageCategories.astro";
@@ -46,9 +45,7 @@ export async function getStaticPaths({ paginate }) {
 
 const { page, cats, currentCat } = Astro.props;
 ---
-<Main id="posts" title={currentCat.name}>
-
-    <Nav lang="ar" />
+<Main id="posts" title={currentCat.name} lang="ar">
 
     <PageCategories cats={cats} currentCat={currentCat} />
 

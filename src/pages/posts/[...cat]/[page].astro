@@ -46,9 +46,7 @@ export async function getStaticPaths({ paginate }) {
 
 const { page, cats, currentCat } = Astro.props;
 ---
-<Main id="posts" title={currentCat.name}>
-
-    <Nav lang="en" />
+<Main id="posts" title={currentCat.name} lang="en">
 
     <PageCategories cats={cats} currentCat={currentCat} />
 
