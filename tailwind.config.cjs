@@ -11,14 +11,26 @@ module.exports = {
 				'cd-xl': '5.8rem',
 				'cd-xxl': '6.4rem'
 			},
-			maxWidth: {
-				'cd-xs': '32rem',
-				'cd-sm': '48rem',
-				'cd-md': '76.8rem',
-				'cd-lg': '99.2rem'
-			},
 			boxShadow: {
 				'cd-base': '0 0.4rem 0.4rem black',
+			},
+			maxWidth: {
+				//menu-mobile-logo
+				'mml': '18rem',
+				//menu-mobile-feature-btn
+				'mmfb': '3rem'
+			},
+			gridTemplateRows: {
+				//menu-mobile-rows
+				'mmr': 'repeat(2, min-content)',
+				//menu-tablet-rows
+				'mtr': '1fr'
+			},
+			gridTemplateColumns: {
+				//menu-mobile-columns
+				'mmc': 'max-content 1fr max-content',
+				//menu-tablet-columns
+				'mtc': 'max-content 1fr max-content'
 			}
 		},
 	},

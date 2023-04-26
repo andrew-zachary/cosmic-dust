@@ -1,5 +1,21 @@
 ---
-const links = {
+import IconBars from "../assets/icon-bars.astro";
+import IconLogoTest from "../assets/icon-logo-test.astro";
+
+const langLinks = {
+    "en": {
+        "label": "",
+        "name": "العربية",
+        "url": "/ar"
+    },
+    "ar": {
+        "label": "",
+        "name": "En",
+        "url": "/"
+    }
+};
+
+const navLinks = {
     "en": [{
         "label": "home",
         "name": "home",
@@ -14,11 +30,6 @@ const links = {
         "label": "about",
         "name": "about",
         "url": "/about"
-    },
-    {
-        "label": "",
-        "name": "العربية",
-        "url": "/ar"
     }],
     "ar": [{
         "label": "home",
@@ -34,11 +45,6 @@ const links = {
         "label": "about",
         "name": "عنا",
         "url": "/ar/about"
-    },
-    {
-        "label": "",
-        "name": "En",
-        "url": "/"
     }]
 };
 
@@ -56,14 +62,72 @@ const { lang } = Astro.props;
     });
 
 </script>
-<nav>
-    <ul>
-        {
-            links[lang].map( link => {
-                return <li class="nav-link text-cd-sm font-ssp font-regular capitalize" data-label={link.label}>
-                    <a href={link.url}>{ link.name }</a>
-                </li>
-            })
-        }
-    </ul>
+<nav class="p-2" x-data="navmenu">
+
+    <div 
+        id="nav-box" 
+        class="grid justify-items-center items-center
+        grid-rows-mmr grid-cols-mmc
+        md:grid-rows-mtr md:grid-cols-mtc"
+    >
+
+        <div 
+            id="bars-btn" 
+            class="max-w-mmfb cursor-pointer 
+            md:hidden"
+            @click="open = !open"
+        >
+            <IconBars />
+        </div>
+
+        <div 
+            id="logo" 
+            class="max-w-mml
+            md:col-start-1 md:col-end-2"
+        >
+            <IconLogoTest />
+        </div>
+
+        <div 
+            id="list-links" 
+            class="w-full 
+            row-start-2 row-end-3 col-start-1 col-end-4
+            md:row-start-1 md:row-end-1 md:col-start-2 md:col-end-3"
+        >
+            <ul
+                class="text-4xl text-center capitalize
+                [&[x-cloak]]:hidden
+                md:!flex md:justify-start md:text-end md:!h-full"
+                x-show="open"
+                x-collapse
+                x-cloak
+            >
+                {
+                    navLinks[lang].map( link => {
+                        return <li class="nav-link
+                                py-6 md:px-4 md:py-0
+                                text-cd-sm 
+                                font-ssp font-regular 
+                                capitalize" 
+                                data-label={link.label}
+                            >
+                            <a href={link.url}>{ link.name }</a>
+                        </li>
+                    })
+                }
+            </ul>
+        </div>
+
+        <div 
+            id="lang-switch-btn" 
+            class="cursor-pointer
+            md:col-start-3 md:col-end-4"
+        >
+            <div class="nav-link text-cd-sm font-ssp font-regular capitalize" data-label={langLinks[lang].label}>
+                <a href={langLinks[lang].url}>{ langLinks[lang].name }</a>
+            </div>
+        </div>
+        
+    </div>
+
 </nav>
