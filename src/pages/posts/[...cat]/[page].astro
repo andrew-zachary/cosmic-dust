@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 
 // layout
 import Main from "../../../layout/Main.astro";
-import Nav from "../../../layout/Nav.astro";
 
 // components
 import PageCategories from "../../../components/PageCategories.astro";
@@ -50,7 +49,7 @@ const { page, cats, currentCat } = Astro.props;
 
     <PageCategories cats={cats} currentCat={currentCat} />
 
-    <ul>
+    <ul class="mt-8">
         {
             page.data.map(post => {
                 return <ListItem>

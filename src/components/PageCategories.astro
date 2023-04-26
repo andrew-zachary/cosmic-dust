@@ -17,7 +17,15 @@ const { currentCat, cats } = Astro.props;
     });
 
 </script>
-<ul id="cat-links-list" data-selected-cat={currentCat.slug}>
+<style lang="scss">
+    ul {
+
+        li {
+            @include withRtl('margin', 0 1rem 0 0, 0 0 0 1rem);
+        }
+    }
+</style>
+<ul class="flex mt-8" id="cat-links-list" data-selected-cat={currentCat.slug}>
     {
         cats.map(cat => {
             return <li class="cat-links-item text-cd-xs font-ssp" data-slug={cat.slug}>

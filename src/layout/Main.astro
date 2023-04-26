@@ -24,6 +24,10 @@ const langs = {
 	html {
 		font-size: 62.5%;
 	}
+
+	html, body {
+		height: 100%;
+	}
 	  
 	.font-mont {
 		@include withRtl('font-family', 'Montserrat', 'Tajawal');
@@ -55,15 +59,21 @@ const langs = {
 	</head>
 	<body id={id} dir={langs[lang].dir}>
 
-		<main class="max-w-screen-md mx-auto 
-			p-2 md:p-4"
-		>
+		<div id="page-layout" class="h-full max-w-screen-md mx-auto p-2 md:p-4 grid items-center overflow-auto">
 
-			<Nav lang={lang} />
-	
-			<slot></slot>
+			<div id="page-layout-box" class="flex flex-col">
 
-		</main>
+				<Nav lang={lang} />
+		
+				<main class="mt-16">
+				
+					<slot></slot>
+		
+				</main>
+
+			</div>
+
+		</div>
 
 	</body>
 </html>

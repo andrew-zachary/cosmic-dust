@@ -17,10 +17,10 @@ const { page, currentCat, postsUrl } = Astro.props;
     });
 
 </script>
-<ul id="pages-links-list" data-selected-page={page.currentPage}>
+<ul class="flex justify-center mt-8" id="pages-links-list" data-selected-page={page.currentPage}>
     {
         Array( Math.ceil(page.total / 5) ).fill(undefined).map( (_, index) => {
-            return <li class="pages-links-item text-cd-xs font-ssp" data-page={index + 1}>
+            return <li class="pages-links-item px-4 text-cd-xs font-ssp" data-page={index + 1}>
                 <a href={`${postsUrl}/${currentCat.slug}/${index + 1}`}>{ index + 1 }</a>
             </li>
         })
