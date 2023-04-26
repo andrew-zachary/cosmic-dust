@@ -8,12 +8,15 @@ import Main from "../../../../layout/Main.astro";
 import PageMainHeader from "../../../../components/PageMainHeader.astro";
 import PageMainContent from "../../../../components/PageMainContent.astro";
 
+// meta
+import cats from "../../../../meta/cats.json";
+
 export async function getStaticPaths() {
 
     const enPosts = await getCollection('posts', ({id}) => id.includes('ar/'));
 
     return enPosts.map(post => ({
-        params: { slug: post.slug, cat: post.data.cat }, 
+        params: { slug: post.slug, cat: cats['ar'].filter( cat => cat.id === post.data.cat)[0].slug }, 
         props: { post }
     }));
 

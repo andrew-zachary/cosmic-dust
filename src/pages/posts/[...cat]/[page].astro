@@ -9,33 +9,28 @@ import PageCategories from "../../../components/PageCategories.astro";
 import PagePagination from "../../../components/PagePagination.astro";
 import ListItem from "../../../components/ListItem.astro";
 
+// meta
+import cats from "../../../meta/cats.json";
+
 export async function getStaticPaths({ paginate }) {
 
-    const cats = [
-        { name: 'cat 1', slug: 'cat-1', url: '/posts/cat-1/1'},
-        { name: 'cat 2', slug: 'cat-2', url: '/posts/cat-2/1'},
-        { name: 'cat 3', slug: 'cat-3', url: '/posts/cat-3/1'},
-        { name: 'cat 4', slug: 'cat-4', url: '/posts/cat-4/1'},
-        { name: 'all', slug: 'all', url: '/posts/all/1'}
-    ];
+    const paginatedCats = cats['en'].map( async (cat) => {
 
-    const paginatedCats = cats.map( async (cat) => {
-
-        if(cat.slug === 'all') {
+        if(cat.id === 1) {
 
             const enPostsAll = await getCollection('posts', post => post.id.includes('en/'));
 
-            return paginate( enPostsAll, { pageSize: 5, params: { cat: cat.slug }, props: { cats, currentCat: cat } });    
+            return paginate( enPostsAll, { pageSize: 5, params: { cat: cat.slug }, props: { cats: cats['en'], currentCat: cat } });    
 
         }
 
         const enPostsByCat = await getCollection('posts', post => {
 
-            return post.id.includes('en/') && (post.data.cat === cat.slug);
+            return post.id.includes('en/') && (post.data.cat === cat.id);
 
         });
 
-        return paginate( enPostsByCat, { pageSize: 5, params: { cat: cat.slug }, props: { cats, currentCat: cat } });
+        return paginate( enPostsByCat, { pageSize: 5, params: { cat: cat.slug }, props: { cats: cats['en'], currentCat: cat } });
 
     });
 
