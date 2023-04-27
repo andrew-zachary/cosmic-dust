@@ -1,0 +1,35 @@
+---
+
+import IconClose from "../assets/icon-close.astro";
+
+---
+<template x-teleport="body">
+    <div id="main-modal" 
+        class="bg-[#000000e6]
+        absolute inset-0 
+        w-full h-full
+        z-50 transition-opacity"
+        x-show="open"
+        x-transition
+    >
+        <div id="main-modal_layout" class="flex flex-col h-full w-full max-w-screen-md mx-auto">
+
+            <div id="modal-header" class="p-4 grow-0">
+                
+                <div id="modal-header_layout" class="flex justify-end">
+                    
+                    <div id="close-btn" class="max-w-mcb cursor-pointer" @click="open = !open">
+                        <IconClose />
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="modal-content" class="grow">
+                <slot></slot>
+            </div>
+
+        </div>
+    </div>
+</template>

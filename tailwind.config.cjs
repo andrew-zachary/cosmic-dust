@@ -18,7 +18,9 @@ module.exports = {
 				//menu-mobile-logo
 				'mml': '18rem',
 				//menu-mobile-feature-btn
-				'mmfb': '3rem'
+				'mmfb': '3rem',
+				//modal-close-btn
+				'mcb': '4rem'
 			},
 			gridTemplateRows: {
 				//menu-mobile-rows

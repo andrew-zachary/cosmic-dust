@@ -2,6 +2,11 @@
 
 const { currentCat, cats } = Astro.props;
 
+import IconArrowDown from "../assets/icon-arrow-down.astro";
+
+// components
+import Modal from "./Modal.astro";
+
 ---
 <script>
 
@@ -17,20 +22,54 @@ const { currentCat, cats } = Astro.props;
     });
 
 </script>
-<style lang="scss">
-    ul {
+<style lang="scss" is:global>
 
-        li {
-            @include withRtl('margin', 0 1rem 0 0, 0 0 0 1rem);
+    #main-modal {
+
+        ul {
+            
+            li.active-link {
+
+                a {
+                    border-color: white;
+                }
+            }
         }
     }
 </style>
-<ul class="flex mt-8" id="cat-links-list" data-selected-cat={currentCat.slug}>
-    {
-        cats.map(cat => {
-            return <li class="cat-links-item text-cd-xs font-ssp" data-slug={cat.slug}>
-                <a href={ cat.url }>{ cat.name }</a>
-            </li>
-        })
-    }
-</ul>
+<div x-data="{ open: false }" id="category-picker">
+
+    <div id="category-picker-btn" @click="open = !open">
+
+        <div class="inline-block border-2 border-black rounded-full cursor-pointer">
+
+            <div class="flex items-center">
+    
+                <div class="px-4 text-cd-sm font-mont font-bold whitespace-nowrap capitalize">
+                    { currentCat.name }
+                </div>
+                <div class="px-4 w-[3.5rem] h-[3rem]">
+                    <IconArrowDown />
+                </div>
+    
+            </div>
+
+        </div>
+
+    </div>
+
+    <Modal>
+        
+        <ul class="flex flex-col items-center justify-center" id="cat-links-list" data-selected-cat={ currentCat.slug }>
+            {
+                cats.map(cat => {
+                    return <li class="cat-links-item mt-8 text-cd-md text-white font-ssp font-bold capitalize" data-slug={ cat.slug }>
+                        <a href={ cat.url }>{ cat.name }</a>
+                    </li>
+                })
+            }
+        </ul>
+
+    </Modal>
+
+</div>
