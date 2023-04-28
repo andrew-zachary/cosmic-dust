@@ -8,13 +8,17 @@ import IconClose from "../assets/icon-close.astro";
         class="bg-[#000000e6]
         absolute inset-0 
         w-full h-full
-        z-50 transition-opacity"
+        z-50"
         x-show="open"
         x-transition
     >
-        <div id="main-modal_layout" class="flex flex-col h-full w-full max-w-screen-md mx-auto">
+        <div id="main-modal_layout"
+            class="flex flex-col 
+            h-full w-full max-h-full 
+            max-w-screen-md mx-auto"
+        >
 
-            <div id="modal-header" class="p-4 grow-0">
+            <div id="modal-header" class="grow-0 p-4">
                 
                 <div id="modal-header_layout" class="flex justify-end">
                     
@@ -26,7 +30,7 @@ import IconClose from "../assets/icon-close.astro";
 
             </div>
 
-            <div id="modal-content" class="grow">
+            <div id="modal-content" class="grow p-4 overflow-hidden">
                 <slot></slot>
             </div>
 

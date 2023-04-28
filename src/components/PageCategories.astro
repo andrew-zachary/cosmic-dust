@@ -35,13 +35,14 @@ import Modal from "./Modal.astro";
                 }
             }
         }
+
     }
 </style>
 <div x-data="{ open: false }" id="category-picker">
 
-    <div id="category-picker-btn" @click="open = !open">
+    <div id="category-picker-btn">
 
-        <div class="inline-block border-2 border-black rounded-full cursor-pointer">
+        <div class="inline-block border-2 border-black rounded-full cursor-pointer" @click="open = !open">
 
             <div class="flex items-center">
     
@@ -59,16 +60,30 @@ import Modal from "./Modal.astro";
     </div>
 
     <Modal>
-        
-        <ul class="flex flex-col items-center justify-center" id="cat-links-list" data-selected-cat={ currentCat.slug }>
-            {
-                cats.map(cat => {
-                    return <li class="cat-links-item mt-8 text-cd-md text-white font-ssp font-bold capitalize" data-slug={ cat.slug }>
-                        <a href={ cat.url }>{ cat.name }</a>
-                    </li>
-                })
-            }
-        </ul>
+
+        <div class="w-full h-full flex flex-col">
+
+            <div class="grow-0">
+
+                <input type="text" class="w-full p-4 text-cd-sm font-ssp" />
+
+            </div>
+    
+            <div class="grow overflow-auto">
+    
+                <ul class="flex flex-col items-center justify-center" id="cat-links-list" data-selected-cat={ currentCat.slug }>
+                    {
+                        cats.map(cat => {
+                            return <li class="cat-links-item mt-8 text-cd-md text-white font-ssp font-bold capitalize" data-slug={ cat.slug }>
+                                <a href={ cat.url }>{ cat.name }</a>
+                            </li>
+                        })
+                    }
+                </ul>
+    
+            </div>
+
+        </div>
 
     </Modal>
 
