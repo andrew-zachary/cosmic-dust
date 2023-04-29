@@ -8,20 +8,6 @@ import IconArrowDown from "../assets/icon-arrow-down.astro";
 import Modal from "./Modal.astro";
 
 ---
-<script>
-
-    const catLinksItem = document.querySelectorAll('.cat-links-item');
-    const catLinksList = document.querySelector('#cat-links-list');
-    
-    catLinksItem.forEach( item => {
-
-        if(catLinksList.getAttribute('data-selected-cat') === item.getAttribute('data-slug')) {
-            item.classList.add('active-link');
-        }
-
-    });
-
-</script>
 <style lang="scss" is:global>
 
     #main-modal {
@@ -69,13 +55,13 @@ import Modal from "./Modal.astro";
 
             <div class="grow-0">
 
-                <input @input="filterCategories" type="text" class="w-full p-4 text-cd-sm font-ssp" />
+                <input @input="filterCategories" type="text" class="w-full p-4 text-cd-sm font-ssp rounded-full" x-trap="open" />
 
             </div>
     
             <div class="grow overflow-auto">
     
-                <ul x-ref="cats" class="flex flex-col items-center justify-center" id="cat-links-list" data-selected-cat={ currentCat.slug }>
+                <ul id="cat-links-list" class="flex flex-col items-center justify-center" x-ref="cats" data-selected-cat={ currentCat.slug }>
                     {
                         cats.map(cat => {
                             return <li class="cat-links-item mt-8 text-cd-md text-white font-ssp font-bold capitalize" data-slug={ cat.slug }>
