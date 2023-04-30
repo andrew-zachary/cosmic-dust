@@ -48,7 +48,7 @@ const { page, cats, currentCat } = Astro.props;
         {
             page.data.map(post => {
                 return <ListItem>
-                    <a href={ `${post.slug}` }>{ post.data.title }</a>
+                    <a href={ `/ar/posts/${currentCat.slug}/${post.slug}` }>{ post.data.title }</a>
                 </ListItem>
             })
         }
